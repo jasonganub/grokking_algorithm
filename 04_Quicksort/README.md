@@ -33,10 +33,15 @@ However; sometimes the constant can make a difference. Quicksort has a smaller c
 merge sort. They're both O(n log n) but quick sort is faster in practice because it hits the average 
 case more often than the worst case.
 
-It is considered O(n log n) because the height of the call stack is O(log n) since you are splitting the 
-array in half at the midpoint for a pivot each time. However; you search the entire array O(n) at each level.
-You have to go through every item to sort it to the left or right so even though the call stack is O(log n), 
-you touch every item AKA n.
+It is considered O(n log n). N is from checking each item in the array to see if it is lesser or greater than 
+the pivot point. The next part is tricky. The solution doesn't know whether the array is already sorted or not.
+If it happens to already be sorted and you keep using the pivot point at index 0, you'll never have a lesser than 
+sub-array and will only have a large greater than sub-array. This is very inefficient and you will call the recursive 
+call stack n times.
+
+However; if you chose the middle or a random pivot point. You reduce the chance of having an unbalanced lesser and 
+greater than sub-array. A balanced lesser and greater than sub-array means you will make less recursive calls since 
+they are already divided and half the size. This is how you get log n since it is a divide and conquer method.
 
 In the best case scenario, this results in O(n) * O(log n) = O(n log n)
 In the worst case scenario, this results in O(n) * O(n) = O(n^2)
