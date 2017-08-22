@@ -22,6 +22,8 @@ Linked Lists:
 O(n) is linear time
 O(1) is constant time
 
+note: arrays have a read of O(1), this is different than the search runtime complexity.
+
 #### Exercise:
 2.1: Linked List since there are many insertions and few reads. 
 
